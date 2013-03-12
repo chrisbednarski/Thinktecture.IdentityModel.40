@@ -99,7 +99,8 @@ namespace Thinktecture.IdentityModel.Authorization
             if (EnforceAuthorizationManagerImplementation)
             {
                 var authZtype = AuthorizationManager.GetType().FullName;
-                if (authZtype.Equals("System.Security.Claims.ClaimsAuthorizationManager"))
+                if (authZtype.Equals("System.Security.Claims.ClaimsAuthorizationManager") ||
+                    authZtype.Equals("Microsoft.IdentityModel.Claims.ClaimsAuthorizationManager"))
                 {
                     throw new InvalidOperationException("No ClaimsAuthorizationManager implementation configured.");
                 }
